@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructures\Commands\Base\" />
+    <Folder Include="Infrastructures\Enums\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Infrastructures\Navigators\" />
+    <Folder Include="Styles\" />
+    <Folder Include="ViewModels\Base\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+
+</Project>

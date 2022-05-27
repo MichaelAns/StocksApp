@@ -8,12 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructures\Commands\Base\" />
     <Folder Include="Infrastructures\Enums\" />
     <Folder Include="Controls\" />
     <Folder Include="Infrastructures\Navigators\" />
     <Folder Include="Styles\" />
-    <Folder Include="ViewModels\Base\" />
     <Folder Include="Views\" />
   </ItemGroup>
 

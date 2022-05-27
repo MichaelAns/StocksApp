@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructures\Enums\" />
     <Folder Include="Controls\" />
-    <Folder Include="Infrastructures\Navigators\" />
     <Folder Include="Styles\" />
     <Folder Include="Views\" />
   </ItemGroup>

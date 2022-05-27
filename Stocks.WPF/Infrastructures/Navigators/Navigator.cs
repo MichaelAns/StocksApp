@@ -1,4 +1,5 @@
-﻿using Stocks.WPF.ViewModels.Base;
+﻿using Stocks.WPF.Infrastructures.Commands;
+using Stocks.WPF.ViewModels.Base;
 using System.ComponentModel;
 using System.Windows.Input;
 

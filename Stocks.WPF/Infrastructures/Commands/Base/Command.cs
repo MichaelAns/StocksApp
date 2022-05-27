@@ -16,4 +16,4 @@ namespace Stocks.WPF.Infrastructures.Commands.Base
         public abstract void Execute(object? parameter);
     }
 }
-}
+

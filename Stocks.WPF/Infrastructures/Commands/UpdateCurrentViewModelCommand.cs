@@ -1,6 +1,7 @@
 ﻿using Stocks.WPF.Infrastructures.Commands.Base;
 using Stocks.WPF.Infrastructures.Enums;
 using Stocks.WPF.Infrastructures.Navigators;
+using Stocks.WPF.ViewModels;
 using System;
 
 namespace Stocks.WPF.Infrastructures.Commands
@@ -28,6 +29,9 @@ namespace Stocks.WPF.Infrastructures.Commands
                 ViewType viewType = (ViewType)parameter;
                 switch (viewType)
                 {
+                    case ViewType.Issuer:
+                        _navigator.CurrentViewModel = new IssuerViewModel();
+                        break;
                     /*case ViewType.Home:
                         _navigator.CurrentViewModel = new HomeViewModel();
                         break;

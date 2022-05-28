@@ -146,21 +146,21 @@ namespace Stocks.WPF.ViewModels.Base
         #endregion
 
         //конструктор
-        public TableViewModelFoundation(StocksDbContextFactory stocksDbContextFactory)
+        public TableViewModelFoundation()
         {
-            _stocksDbContextFactory = stocksDbContextFactory;
+            _stocksDbContextFactory = new StocksDbContextFactory();
             _updatedItemsIds = new List<int>();
             DeleteSelectedItem = new RelayCommand(DeleteItem, (obj)=>true);
-            AddNewRecord = new RelayCommand(AddRecord);
-            CommitChanges = new RelayCommand(Commit);
-
-            try
+            AddNewRecord = new RelayCommand(AddRecord, (obj) => true);
+            CommitChanges = new RelayCommand(Commit, (obj) => true);
+            IsPermitted = true;
+            /*try
             {
                 TModel buf = null;
                 using (var dbContext = _stocksDbContextFactory.CreateDbContext())
                 {
 
-                    buf = dbContext.Add(new TModel()).Entity;
+                    buf = dbContext.Add(new TModel() { Id=1}).Entity;
                     dbContext.SaveChanges();
                 }
                 IsPermitted = true;
@@ -173,7 +173,7 @@ namespace Stocks.WPF.ViewModels.Base
             catch
             {
                 IsPermitted = false;
-            }
+            }*/
         }
     }
 }

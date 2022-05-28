@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Stocks.WPF.ViewModels;
 using System.Windows;
 
 namespace Stocks.WPF
@@ -13,5 +8,13 @@ namespace Stocks.WPF
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            Window window = new MainWindow();
+            window.DataContext = new MainViewModel();
+            window.Show();
+            base.OnStartup(e);
+        }
+        
     }
 }

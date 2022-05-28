@@ -2,7 +2,7 @@
 
 namespace Stocks.EntityFramework.Models
 {
-    internal class Market : BaseEntity
+    public class Market : BaseEntity
     {
         public string MarketName { get; set; }
         public string MarketCoutry { get; set; }

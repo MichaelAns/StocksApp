@@ -3,7 +3,7 @@ using Stocks.EntityFramework.Models;
 
 namespace Stocks.EntityFramework.Date
 {
-    internal class StocksDbContext : DbContext
+    public class StocksDbContext : DbContext
     {
         public StocksDbContext(DbContextOptions options) : base(options) { }
         public DbSet<Stock> Stock { get; set; }

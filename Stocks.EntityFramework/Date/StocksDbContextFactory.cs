@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace Stocks.EntityFramework.Date
 {
-    internal class StocksDbContextFactory : IDesignTimeDbContextFactory<StocksDbContext>
+    public class StocksDbContextFactory : IDesignTimeDbContextFactory<StocksDbContext>
     {
         public StocksDbContext CreateDbContext(string[] args = null)
         {

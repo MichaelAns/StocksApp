@@ -2,7 +2,7 @@
 
 namespace Stocks.EntityFramework.Models
 {
-    internal class Stock : BaseEntity
+    public class Stock : BaseEntity
     {
         public string StockName { get; set; }
         public Issuer Issuer { get; set; }

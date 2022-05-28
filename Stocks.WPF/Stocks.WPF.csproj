@@ -7,4 +7,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Stocks.EntityFramework\Stocks.EntityFramework.csproj" />
+  </ItemGroup>
+
 </Project>

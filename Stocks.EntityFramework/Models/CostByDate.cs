@@ -2,7 +2,7 @@
 
 namespace Stocks.EntityFramework.Models
 {
-    internal class CostByDate : BaseEntity
+    public class CostByDate : BaseEntity
     {
         public DateOnly CbdDate { get; set; }
         public double CbdPrice { get; set; }

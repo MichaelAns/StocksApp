@@ -32,6 +32,9 @@ namespace Stocks.WPF.Infrastructures.Commands
                     case ViewType.Issuer:
                         _navigator.CurrentViewModel = new IssuerViewModel();
                         break;
+                    default:
+                        _navigator.CurrentViewModel = new MainViewModel();
+                        break;
                     /*case ViewType.Home:
                         _navigator.CurrentViewModel = new HomeViewModel();
                         break;
@@ -42,6 +45,10 @@ namespace Stocks.WPF.Infrastructures.Commands
                         break;*/
                 }
             }
+            else
+            {
+                _navigator.CurrentViewModel = new MainViewModel();
+            }    
         }
     }
 }

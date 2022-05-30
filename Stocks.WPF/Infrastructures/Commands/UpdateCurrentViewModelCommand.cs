@@ -44,11 +44,7 @@ namespace Stocks.WPF.Infrastructures.Commands
                     default:
                         break;*/
                 }
-            }
-            else
-            {
-                _navigator.CurrentViewModel = new MainViewModel();
-            }    
+            }   
         }
     }
 }

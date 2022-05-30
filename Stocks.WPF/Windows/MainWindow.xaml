@@ -11,13 +11,18 @@
         Title="MainWindow" Height="550" Width="900">
 
     <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <controls:NavigationBar Grid.Row="0" DataContext="{Binding Navigator}"/>
+        <controls:NavigationBar Grid.Row="0" DataContext="{Binding Navigator}" Grid.ColumnSpan="2" Margin="0,0,0,487" Grid.RowSpan="2"/>
 
-        <ContentControl Grid.Row="1" Content="{Binding Navigator.CurrentViewModel}"/>
+        <ContentControl Grid.Row="1" Content="{Binding Navigator.CurrentViewModel}" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

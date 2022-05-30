@@ -5,7 +5,7 @@ using Stocks.EntityFramework.Models.Base;
 
 namespace Stocks.EntityFramework.Services
 {
-    internal class GenericDataService<T> : IDataService<T> where T : BaseEntity
+    public class GenericDataService<T> : IDataService<T> where T : BaseEntity
     {
         private readonly StocksDbContextFactory _contextFactory;
 

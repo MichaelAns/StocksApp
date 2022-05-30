@@ -1,6 +1,6 @@
 ﻿namespace Stocks.EntityFramework.Services
 {
-    internal interface IDataService<T>
+    public interface IDataService<T>
     {
         Task<IEnumerable<T>> GetAll();
 

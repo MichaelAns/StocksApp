@@ -1,6 +1,12 @@
-﻿using Stocks.WPF.Infrastructures.Commands;
+﻿using Microsoft.EntityFrameworkCore;
+using Stocks.EntityFramework.Date;
+using Stocks.EntityFramework.Models;
+using Stocks.EntityFramework.Services;
+using Stocks.WPF.Infrastructures;
+using Stocks.WPF.Infrastructures.Commands;
 using Stocks.WPF.Infrastructures.Commands.Base;
 using Stocks.WPF.Infrastructures.Navigators;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Stocks.WPF.ViewModels
@@ -31,17 +37,22 @@ namespace Stocks.WPF.ViewModels
         }
 
         //сам вход
-        private void LogIn(object obj)
+        private async void LogInAsync(object obj)
         {
             try
             {
+                User user;
                 //действия
-
+                using (var dbContext = new StocksDbContextFactory().CreateDbContext())
+                {
+                    user = await dbContext.Set<User>().FirstOrDefaultAsync((e) => e.UserLogin == _login && e.UserPassword == _password);
+                }
+                Configuration.IsAdmin = user.UserIsAdmin;
                 OpenViewModel.MainNavigator.CurrentViewModel = new MainViewModel();
             }
             catch
             {
-
+                MessageBox.Show("Неправильно введен логин/пароль или пользователя не существует");
             } 
         }
         public ICommand OnLoginClick { get; }
@@ -54,7 +65,7 @@ namespace Stocks.WPF.ViewModels
 
         public LoginViewModel()
         {
-            OnLoginClick = new RelayCommand(LogIn, CanLogin);
+            OnLoginClick = new RelayCommand(LogInAsync, CanLogin);
         }
 
     }

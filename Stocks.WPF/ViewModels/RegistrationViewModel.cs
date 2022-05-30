@@ -1,4 +1,8 @@
-﻿using Stocks.WPF.Infrastructures.Commands;
+﻿using Microsoft.EntityFrameworkCore;
+using Stocks.EntityFramework.Date;
+using Stocks.EntityFramework.Models;
+using Stocks.WPF.Infrastructures.Commands;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Stocks.WPF.ViewModels
@@ -30,12 +34,17 @@ namespace Stocks.WPF.ViewModels
             return true;
         }
 
-        //сам вход
-        private void SignIn(object obj)
+        //сама регистрация
+        private async void SignInAsync(object obj)
         {
             try
             {
+                User user;
                 //действия
+                using (var dbContext = new StocksDbContextFactory().CreateDbContext())
+                {
+                    user = await dbContext.Set<User>().FirstOrDefaultAsync((e) => e.UserLogin == _login && e.UserPassword == _password);
+                }
 
                 OpenViewModel.MainNavigator.CurrentViewModel = new LoginViewModel();
             }
@@ -52,7 +61,7 @@ namespace Stocks.WPF.ViewModels
 
         public RegistrationViewModel()
         {
-            OnSignInClick = new RelayCommand(SignIn, CanLogin);
+            OnSignInClick = new RelayCommand(SignInAsync, CanLogin);
         }
         //public ICommand OnButtonClick => OpenViewModel.MainNavigator.UpdateCurrentViewModelCommand;
     }

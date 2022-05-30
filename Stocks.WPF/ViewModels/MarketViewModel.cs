@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Stocks.EntityFramework.Models;
+using Stocks.WPF.Infrastructures;
 
 namespace Stocks.WPF.ViewModels
 {
-    internal class MarketViewModel
+    internal class MarketViewModel : Base.TableViewModelFoundation<Market>
     {
+        public MarketViewModel()
+        {
+            using (var dbContext = _stocksDbContextFactory.CreateDbContext())
+            {
+                Items = Configuration.Markets;
+            }
+        }
     }
 }

@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Stocks.EntityFramework.Models;
+using Stocks.WPF.Infrastructures;
 
 namespace Stocks.WPF.ViewModels
 {
-    internal class CostByDateViewModel
+    internal class CostByDateViewModel : Base.TableViewModelFoundation<CostByDate>
     {
+        public CostByDateViewModel()
+        {
+            using (var dbContext = _stocksDbContextFactory.CreateDbContext())
+            {
+                Items = Configuration.CostByDates;
+            }
+        }
     }
 }

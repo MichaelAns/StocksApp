@@ -15,6 +15,23 @@
             <DataTemplate DataType="{x:Type viewmodels:IssuerViewModel}">
                 <views:IssuerView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:StockViewModel}">
+                <views:StockView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:MarketStockViewModel}">
+                <views:MarketStockView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:DividendViewModel}">
+                <views:DividendView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:CostByDateViewModel}">
+                <views:CostByDateView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:MarketViewModel}">
+                <views:MarketView/>
+            </DataTemplate>
+            
+            
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <views:LogInView/>
             </DataTemplate>
@@ -24,9 +41,7 @@
             <DataTemplate DataType="{x:Type viewmodels:RegistrationViewModel}">
                 <views:RegistrationView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:StockViewModel}">
-                <views:StockView/>
-            </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

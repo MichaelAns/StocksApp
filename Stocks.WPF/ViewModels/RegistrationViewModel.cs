@@ -2,7 +2,9 @@
 using Stocks.EntityFramework.Date;
 using Stocks.EntityFramework.Models;
 using Stocks.WPF.Infrastructures.Commands;
+using System;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Stocks.WPF.ViewModels
@@ -39,18 +41,27 @@ namespace Stocks.WPF.ViewModels
         {
             try
             {
-                User user;
                 //действия
                 using (var dbContext = new StocksDbContextFactory().CreateDbContext())
                 {
-                    user = await dbContext.Set<User>().FirstOrDefaultAsync((e) => e.UserLogin == _login && e.UserPassword == _password);
+                    if (await dbContext.Set<User>().AnyAsync<User>(e => e.UserLogin == _login))
+                    {
+                        throw new Exception("Пользователь с этим логином уже существует");
+                    }
+                    await dbContext.AddAsync(new User()
+                    {
+                        UserLogin = _login,
+                        UserPassword = _password,
+                        UserIsAdmin = false
+                    });
+                    await dbContext.SaveChangesAsync();
                 }
 
                 OpenViewModel.MainNavigator.CurrentViewModel = new LoginViewModel();
             }
-            catch
+            catch(Exception exc)
             {
-
+                MessageBox.Show(exc.Message);
             }
         }
         #endregion

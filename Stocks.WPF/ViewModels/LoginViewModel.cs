@@ -48,6 +48,10 @@ namespace Stocks.WPF.ViewModels
 
         #endregion
 
+        #region Registration
+        public ICommand OnSignInClick => OpenViewModel.MainNavigator.UpdateCurrentViewModelCommand;
+        #endregion
+
         public LoginViewModel()
         {
             OnLoginClick = new RelayCommand(LogIn, CanLogin);

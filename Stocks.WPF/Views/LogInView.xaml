@@ -39,7 +39,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Margin="10,10,10,-30" Content="LogIn" Command="{Binding OnLoginClick}" CommandParameter="{x:Static enums:ViewType.Main}"/>
-                <Button Grid.Column="1" Margin="10,10,10,-30" Content="SignIn" Command="{Binding OnButtonClick}" CommandParameter="{x:Static enums:ViewType.Registration}"/>
+                <Button Grid.Column="1" Margin="10,10,10,-30" Content="SignIn" Command="{Binding OnSignInClick}" CommandParameter="{x:Static enums:ViewType.Registration}"/>
             </Grid>
         </Grid>
     </Grid>

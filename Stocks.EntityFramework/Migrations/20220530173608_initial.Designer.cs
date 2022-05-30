@@ -12,7 +12,7 @@ using Stocks.EntityFramework.Date;
 namespace Stocks.EntityFramework.Migrations
 {
     [DbContext(typeof(StocksDbContext))]
-    [Migration("20220527145120_initial")]
+    [Migration("20220530173608_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

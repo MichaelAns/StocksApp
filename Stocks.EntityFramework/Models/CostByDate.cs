@@ -6,6 +6,7 @@ namespace Stocks.EntityFramework.Models
     {
         public DateOnly CbdDate { get; set; }
         public double CbdPrice { get; set; }
+        public int MarketStockId { get; set; }
         public MarketStock MarketStock { get; set; }
     }
 }

@@ -19,22 +19,6 @@ namespace Stocks.WPF.ViewModels.Base
         private TModel _selectedItem;
         protected List<int> _updatedItemsIds;
 
-
-        private bool _isPermitted = true;
-        public bool IsPermitted
-        {
-            get
-            {
-                return _isPermitted;
-            }
-            set
-            {
-                _isPermitted = value;
-                OnPropertyChanged(nameof(IsPermitted));
-            }
-        }
-
-
         public TModel SelectedItem
         {
             get
@@ -80,7 +64,7 @@ namespace Stocks.WPF.ViewModels.Base
 
         private void Commit(object obj)
         {
-            /*try
+            try
             {
                 List<TModel> dbData;
                 var itemsIds = Items.Select(x => x.Id);
@@ -113,39 +97,9 @@ namespace Stocks.WPF.ViewModels.Base
                     dbContext.SaveChanges();
                 }
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
-            }*/
-            List<TModel> dbData;
-            var itemsIds = Items.Select(x => x.Id);
-
-            // deleting removed items
-            using (var dbContext = _stocksDbContextFactory.CreateDbContext())
-            {
-                dbContext.Set<TModel>().RemoveRange(dbContext.Set<TModel>().Where(x => !itemsIds.Contains(x.Id)));
-                dbData = dbContext.Set<TModel>().ToList();
-                dbContext.SaveChanges();
-            }
-
-            // add and update items
-            using (var dbContext = _stocksDbContextFactory.CreateDbContext())
-            {
-                foreach (var item in Items)
-                {
-                    // add item if it is not exists in DB
-                    if (!dbData.Any(x => x.Id == item.Id))
-                    {
-                        item.Id = 0;
-                        dbContext.Set<TModel>().Add(item);
-                    }
-                }
-
-                // update selected items
-                dbContext.UpdateRange(Items.Where(x => _updatedItemsIds.Contains(x.Id)));
-                _updatedItemsIds.Clear();
-
-                dbContext.SaveChanges();
             }
         }
 
@@ -192,7 +146,6 @@ namespace Stocks.WPF.ViewModels.Base
             DeleteSelectedItem = new RelayCommand(DeleteItem, (obj)=>true);
             AddNewRecord = new RelayCommand(AddRecord, (obj) => true);
             CommitChanges = new RelayCommand(Commit, (obj) => true);
-            IsPermitted = true;
             /*try
             {
                 TModel buf = null;

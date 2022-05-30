@@ -29,12 +29,27 @@ namespace Stocks.WPF.Infrastructures.Commands
                 ViewType viewType = (ViewType)parameter;
                 switch (viewType)
                 {
+                    //таблицы
                     case ViewType.Issuer:
                         _navigator.CurrentViewModel = new IssuerViewModel();
                         break;
                     case ViewType.Stock:
                         _navigator.CurrentViewModel = new StockViewModel();
                         break;
+                    case ViewType.Market:
+                        _navigator.CurrentViewModel = new MarketViewModel();
+                        break;
+                    case ViewType.MarketStock:
+                        _navigator.CurrentViewModel = new MarketStockViewModel();
+                        break;
+                    case ViewType.Dividend:
+                        _navigator.CurrentViewModel = new DividendViewModel();
+                        break;
+                    case ViewType.CostByDate:
+                        _navigator.CurrentViewModel = new CostByDateViewModel();
+                        break;
+
+                    //все остальное
                     case ViewType.Registration:
                         _navigator.CurrentViewModel = new RegistrationViewModel();
                         break;

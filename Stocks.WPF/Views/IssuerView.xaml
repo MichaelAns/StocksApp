@@ -44,7 +44,7 @@
                     <DataGridTextColumn Binding="{Binding IssuerCountry}" Header="Country"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <ScrollViewer Grid.Column="1" Margin="20" HorizontalAlignment="Left" Padding="20">
+            <ScrollViewer Grid.Column="1" Margin="30 10 0 0" HorizontalAlignment="Left" Padding="0" Width="250">
                 <StackPanel DataContext="{Binding SelectedItem}">
                     <Label Content="Id"/>
                     <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>

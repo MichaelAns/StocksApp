@@ -48,7 +48,7 @@ namespace Stocks.WPF.ViewModels
 
         #endregion
 
-        #region Registration
+        #region SignIn
         public ICommand OnSignInClick => OpenViewModel.MainNavigator.UpdateCurrentViewModelCommand;
         #endregion
 

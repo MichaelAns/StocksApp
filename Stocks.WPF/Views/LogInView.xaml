@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Stocks.WPF.Views"
+             xmlns:enums="clr-namespace:Stocks.WPF.Infrastructures.Enums"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             DataContext="LoginViewModel">
-    
+             d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -30,11 +30,16 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Login" Grid.Row="0" Grid.Column="0"/>
                 <Label Content="Password" Grid.Row="1" Grid.Column="0"/>
-                <TextBlock Margin="10" Grid.Row="0" Grid.Column="1" Text="111"/>
-                <TextBlock Margin="10" Grid.Row="1" Grid.Column="1"/>
+                <TextBox Margin="10" Grid.Row="0" Grid.Column="1" />
+                <TextBox Margin="10" Grid.Row="1" Grid.Column="1"/>
             </Grid>
             <Grid Grid.Row="1">
-                <Button Margin="10,10,10,-30" Content="LogIn"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="10,10,10,-30" Content="LogIn" Command="{Binding OnButtonClick}" CommandParameter="{x:Static enums:ViewType.Main}"/>
+                <Button Grid.Column="1" Margin="10,10,10,-30" Content="SignIn" Command="{Binding OnButtonClick}" CommandParameter="{x:Static enums:ViewType.Registration}"/>
             </Grid>
         </Grid>
     </Grid>

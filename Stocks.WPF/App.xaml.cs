@@ -11,7 +11,7 @@ namespace Stocks.WPF
         protected override void OnStartup(StartupEventArgs e)
         {
             Window window = new MainWindow();
-            window.DataContext = new MainViewModel();
+            window.DataContext = new OpenViewModel();
             window.Show();
             base.OnStartup(e);
         }

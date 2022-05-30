@@ -2,12 +2,14 @@
 {
     internal enum ViewType
     {
-        Home,
+        Main,
         Stock,
         Market,
         Issuer,
         Dividend,
         MarketStock,
-        CostByDate
+        CostByDate,
+        Login,
+        Registration
     }
 }

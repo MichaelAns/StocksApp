@@ -1,5 +1,6 @@
 ﻿using Stocks.EntityFramework.Date;
 using Stocks.EntityFramework.Models.Base;
+using Stocks.WPF.Infrastructures;
 using Stocks.WPF.Infrastructures.Commands;
 using Stocks.WPF.Infrastructures.Commands.Base;
 using System;
@@ -27,12 +28,15 @@ namespace Stocks.WPF.ViewModels.Base
             }
             set
             {
-                _selectedItem = value;
-                if (_selectedItem != null)
+                if (Configuration.IsAdmin)
                 {
-                    _updatedItemsIds.Add(_selectedItem.Id);
+                    _selectedItem = value;
+                    if (_selectedItem != null)
+                    {
+                        _updatedItemsIds.Add(_selectedItem.Id);
+                    }
+                    OnPropertyChanged(nameof(SelectedItem));
                 }
-                OnPropertyChanged(nameof(SelectedItem));
             }
         }
 
@@ -143,29 +147,9 @@ namespace Stocks.WPF.ViewModels.Base
         {
             _stocksDbContextFactory = new StocksDbContextFactory();
             _updatedItemsIds = new List<int>();
-            DeleteSelectedItem = new RelayCommand(DeleteItem, (obj)=>true);
-            AddNewRecord = new RelayCommand(AddRecord, (obj) => true);
-            CommitChanges = new RelayCommand(Commit, (obj) => true);
-            /*try
-            {
-                TModel buf = null;
-                using (var dbContext = _stocksDbContextFactory.CreateDbContext())
-                {
-
-                    buf = dbContext.Add(new TModel() { Id=1}).Entity;
-                    dbContext.SaveChanges();
-                }
-                IsPermitted = true;
-                using (var dbContext = _stocksDbContextFactory.CreateDbContext())
-                {
-                    var b = dbContext.Remove(buf);
-                    dbContext.SaveChanges();
-                }
-            }
-            catch
-            {
-                IsPermitted = false;
-            }*/
+            DeleteSelectedItem = new RelayCommand(DeleteItem, (obj)=>Configuration.IsAdmin);
+            AddNewRecord = new RelayCommand(AddRecord, (obj) => Configuration.IsAdmin);
+            CommitChanges = new RelayCommand(Commit, (obj) => Configuration.IsAdmin);
         }
     }
 }

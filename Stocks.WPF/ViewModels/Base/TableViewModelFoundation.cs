@@ -2,9 +2,11 @@
 using Stocks.EntityFramework.Models.Base;
 using Stocks.WPF.Infrastructures.Commands;
 using Stocks.WPF.Infrastructures.Commands.Base;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 
 namespace Stocks.WPF.ViewModels.Base
 {
@@ -78,35 +80,42 @@ namespace Stocks.WPF.ViewModels.Base
 
         private void Commit(object obj)
         {
-            List<TModel> dbData;
-            var itemsIds = Items.Select(x => x.Id);
-
-            // deleting removed items
-            using (var dbContext = _stocksDbContextFactory.CreateDbContext())
+            try
             {
-                dbContext.Set<TModel>().RemoveRange(dbContext.Set<TModel>().Where(x => !itemsIds.Contains(x.Id)));
-                dbData = dbContext.Set<TModel>().ToList();
-                dbContext.SaveChanges();
-            }
+                List<TModel> dbData;
+                var itemsIds = Items.Select(x => x.Id);
 
-            // add and update items
-            using (var dbContext = _stocksDbContextFactory.CreateDbContext())
-            {
-                foreach (var item in Items)
+                // deleting removed items
+                using (var dbContext = _stocksDbContextFactory.CreateDbContext())
                 {
-                    // add item if it is not exists in DB
-                    if (!dbData.Any(x => x.Id == item.Id))
-                    {
-                        item.Id = 0;
-                        dbContext.Set<TModel>().Add(item);
-                    }
+                    dbContext.Set<TModel>().RemoveRange(dbContext.Set<TModel>().Where(x => !itemsIds.Contains(x.Id)));
+                    dbData = dbContext.Set<TModel>().ToList();
+                    dbContext.SaveChanges();
                 }
 
-                // update selected items
-                dbContext.UpdateRange(Items.Where(x => _updatedItemsIds.Contains(x.Id)));
-                _updatedItemsIds.Clear();
+                // add and update items
+                using (var dbContext = _stocksDbContextFactory.CreateDbContext())
+                {
+                    foreach (var item in Items)
+                    {
+                        // add item if it is not exists in DB
+                        if (!dbData.Any(x => x.Id == item.Id))
+                        {
+                            item.Id = 0;
+                            dbContext.Set<TModel>().Add(item);
+                        }
+                    }
 
-                dbContext.SaveChanges();
+                    // update selected items
+                    dbContext.UpdateRange(Items.Where(x => _updatedItemsIds.Contains(x.Id)));
+                    _updatedItemsIds.Clear();
+
+                    dbContext.SaveChanges();
+                }
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
 

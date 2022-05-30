@@ -30,15 +30,15 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Login" Grid.Row="0" Grid.Column="0"/>
                 <Label Content="Password" Grid.Row="1" Grid.Column="0"/>
-                <TextBox Margin="10 0 -10 0" Grid.Row="0" Grid.Column="1" />
-                <TextBox Margin="10 0 -10 0" Grid.Row="1" Grid.Column="1"/>
+                <TextBox Margin="10 0 -10 0" Grid.Row="0" Grid.Column="1" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Margin="10 0 -10 0" Grid.Row="1" Grid.Column="1" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Margin="10,10,10,-30" Content="LogIn" Command="{Binding OnButtonClick}" CommandParameter="{x:Static enums:ViewType.Main}"/>
+                <Button Grid.Column="0" Margin="10,10,10,-30" Content="LogIn" Command="{Binding OnLoginClick}" CommandParameter="{x:Static enums:ViewType.Main}"/>
                 <Button Grid.Column="1" Margin="10,10,10,-30" Content="SignIn" Command="{Binding OnButtonClick}" CommandParameter="{x:Static enums:ViewType.Registration}"/>
             </Grid>
         </Grid>

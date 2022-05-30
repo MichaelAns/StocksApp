@@ -4,9 +4,47 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Stocks.WPF.Views"
+             xmlns:controls="clr-namespace:Stocks.WPF.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="5 15 5 -10">
+            <Grid>
+                <controls:OperationsControl/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.Resources>
+                <Style BasedOn="{StaticResource DataGrid}" TargetType="DataGrid"/>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <DataGrid x:Name="providerDataGrid" IsReadOnly="True" Grid.Column="0" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" RowDetailsVisibilityMode="VisibleWhenSelected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="Id"/>
+                    <DataGridTextColumn Binding="{Binding MarketName}" Header="Name"/>
+                    <DataGridTextColumn Binding="{Binding MarketCoutry}" Header="Country"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <ScrollViewer Grid.Column="1" Margin="30 10 0 0" HorizontalAlignment="Left" Padding="0" Width="250">
+                <StackPanel DataContext="{Binding SelectedItem}">
+                    <Label Content="Id"/>
+                    <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+                    <Label Content="Name"/>
+                    <TextBox Text="{Binding MarketName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="Country"/>
+                    <TextBox Text="{Binding MarketCoutry, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
     </Grid>
 </UserControl>

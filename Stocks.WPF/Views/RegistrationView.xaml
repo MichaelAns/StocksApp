@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Stocks.WPF.Views"
+             xmlns:enums="clr-namespace:Stocks.WPF.Infrastructures.Enums"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -28,11 +29,11 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Login" Grid.Row="0" Grid.Column="0"/>
                 <Label Content="Password" Grid.Row="1" Grid.Column="0"/>
-                <TextBlock Margin="10" Grid.Row="0" Grid.Column="1" Text="111"/>
-                <TextBlock Margin="10" Grid.Row="1" Grid.Column="1"/>
+                <TextBox Margin="10 0 -10 0" Grid.Row="0" Grid.Column="1" Text="111"/>
+                <TextBox Margin="10 0 -10 0" Grid.Row="1" Grid.Column="1"/>
             </Grid>
             <Grid Grid.Row="1">
-                <Button Margin="10,10,10,-30" Content="SignIn"/>
+                <Button Margin="10,10,10,-30" Content="SignIn" Command="{Binding OnButtonClick}" CommandParameter="{x:Static enums:ViewType.Login}"/>
             </Grid>
         </Grid>
     </Grid>

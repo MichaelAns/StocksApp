@@ -32,16 +32,15 @@ namespace Stocks.WPF.Infrastructures.Commands
                     case ViewType.Issuer:
                         _navigator.CurrentViewModel = new IssuerViewModel();
                         break;
-                    default:                        
+                    case ViewType.Registration:
+                        _navigator.CurrentViewModel = new RegistrationViewModel();
                         break;
-                    /*case ViewType.Home:
-                        _navigator.CurrentViewModel = new HomeViewModel();
-                        break;
-                    case ViewType.Portfolio:
-                        _navigator.CurrentViewModel = new PortfolioViewModel();
+                    case ViewType.Login:
+                        _navigator.CurrentViewModel = new LoginViewModel();
                         break;
                     default:
-                        break;*/
+                        _navigator.CurrentViewModel = new MainViewModel();
+                        break;
                 }
             }   
             else

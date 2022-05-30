@@ -32,6 +32,9 @@ namespace Stocks.WPF.Infrastructures.Commands
                     case ViewType.Issuer:
                         _navigator.CurrentViewModel = new IssuerViewModel();
                         break;
+                    case ViewType.Stock:
+                        _navigator.CurrentViewModel = new StockViewModel();
+                        break;
                     case ViewType.Registration:
                         _navigator.CurrentViewModel = new RegistrationViewModel();
                         break;

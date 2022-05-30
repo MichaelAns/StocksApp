@@ -26,13 +26,13 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <RadioButton Grid.Column="0" Content="Stock" Command="{Binding UpdateCurrentViewModelCommand}"/>
+            <RadioButton Grid.Column="0" Content="Stock" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.Stock}"/>
             <RadioButton Grid.Column="1" Content="Issuer" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.Issuer}"/>
-            <RadioButton Grid.Column="2" Content="Buy"/>
-            <RadioButton Grid.Column="3" Content="Sell"/>
-            <RadioButton Grid.Column="4" Content="Sell"/>
-            <RadioButton Grid.Column="5" Content="Sell"/>
-            <RadioButton Grid.Column="6" Content="Sell"/>
+            <RadioButton Grid.Column="2" Content="Buy" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.Issuer}"/>
+            <RadioButton Grid.Column="3" Content="Sell" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.Issuer}"/>
+            <RadioButton Grid.Column="4" Content="Sell" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.Issuer}"/>
+            <RadioButton Grid.Column="5" Content="Sell" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.Issuer}"/>
+            <RadioButton Grid.Column="6" Content="Sell" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.Issuer}"/>
         </Grid>
             
     </Grid>

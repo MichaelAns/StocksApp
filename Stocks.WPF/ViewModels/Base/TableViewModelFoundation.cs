@@ -90,7 +90,7 @@ namespace Stocks.WPF.ViewModels.Base
                         // add item if it is not exists in DB
                         if (!dbData.Any(x => x.Id == item.Id))
                         {
-                            item.Id = 0;
+                            //item.Id = 0;
                             dbContext.Set<TModel>().Add(item);
                         }
                     }

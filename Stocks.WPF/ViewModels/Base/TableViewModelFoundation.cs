@@ -3,6 +3,7 @@ using Stocks.EntityFramework.Models.Base;
 using Stocks.WPF.Infrastructures;
 using Stocks.WPF.Infrastructures.Commands;
 using Stocks.WPF.Infrastructures.Commands.Base;
+using Stocks.WPF.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -121,20 +122,23 @@ namespace Stocks.WPF.ViewModels.Base
 
         private void DeleteItem(object obj)
         {
-            if (Items.Count != 0 && SelectedItem != null)
+            if (new DialogWindow().ShowDialog() == true)
             {
-                var previousItemIndex = Items.IndexOf(SelectedItem) - 1;
-                if (previousItemIndex >= 0 && previousItemIndex < Items.Count)
+                if (Items.Count != 0 && SelectedItem != null)
                 {
-                    var beforeSelectedItem = Items[previousItemIndex];
-                    Items.Remove(SelectedItem);
-                    SelectedItem = beforeSelectedItem;
+                    var previousItemIndex = Items.IndexOf(SelectedItem) - 1;
+                    if (previousItemIndex >= 0 && previousItemIndex < Items.Count)
+                    {
+                        var beforeSelectedItem = Items[previousItemIndex];
+                        Items.Remove(SelectedItem);
+                        SelectedItem = beforeSelectedItem;
+                    }
+                    else
+                    {
+                        Items.Remove(SelectedItem);
+                    }
                 }
-                else
-                {
-                    Items.Remove(SelectedItem);
-                }
-            }
+            }            
         }
 
         #endregion

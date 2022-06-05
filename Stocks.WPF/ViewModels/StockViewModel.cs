@@ -28,9 +28,9 @@ namespace Stocks.WPF.ViewModels
                     Items = new ObservableCollection<Stock>();
                     foreach (var stock in Configuration.Stocks)
                     {
-                        if (stock.Id.ToString().Contains(value) ||
-                            stock.IssuerId.ToString().Contains(value) ||
-                            stock.StockName.Contains(value))
+                        if (stock.Id.ToString().ToLower().Contains(value.ToLower()) ||
+                            stock.IssuerId.ToString().ToLower().Contains(value.ToLower()) ||
+                            stock.StockName.ToLower().Contains(value.ToLower()))
                         {
                             Items.Add(stock);
                         }

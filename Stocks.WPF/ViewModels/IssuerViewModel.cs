@@ -15,5 +15,33 @@ namespace Stocks.WPF.ViewModels
                 Items = Configuration.Issuers;
             }
         }
+        public override string Filter
+        {
+            get => _filter;
+            set
+            {
+                _filter = value;
+                if (string.IsNullOrEmpty(_filter))
+                {
+                    Items = Configuration.Issuers;
+                }
+                else
+                {
+                    Items = new ObservableCollection<Issuer>();
+                    foreach (var issuer in Configuration.Issuers)
+                    {
+                        if (issuer.Id.ToString().ToLower().Contains(value.ToLower()) ||
+                            issuer.IssuerCost.ToString().ToLower().Contains(value.ToLower()) ||
+                                issuer.IssuerCountry.ToLower().Contains(value.ToLower()) ||
+                                issuer.IssuerName.ToLower().Contains(value.ToLower()) ||
+                                issuer.IssuerProfit.ToString().ToLower().Contains(value.ToLower()))
+                        {
+                            Items.Add(issuer);
+                        }
+                    }
+                }
+                OnPropertyChanged(nameof(Filter));
+            }
+        }
     }
 }

@@ -34,17 +34,26 @@
                     <DataGridTextColumn Binding="{Binding IssuerId}" Header="IssuerId"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <ScrollViewer Grid.Column="1" Margin="30 10 0 0" HorizontalAlignment="Left" Padding="0" Width="250">
-                <StackPanel DataContext="{Binding SelectedItem}">
-                    <Label Content="Id"/>
-                    <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-                    <Label Content="Name"/>
-                    <TextBox Text="{Binding StockName, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Label Content="IssuerId"/>
-                    <TextBox Text="{Binding IssuerId, UpdateSourceTrigger=PropertyChanged}"/>
-                </StackPanel>
-            </ScrollViewer>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Label Content="Filter" Grid.Row="0"/>
+                    <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>                
+                <ScrollViewer Grid.Row="1" Margin="0 5 0 0" HorizontalAlignment="Left" Padding="0" Width="250">
+                    <StackPanel DataContext="{Binding SelectedItem}">
+                        <Label Content="Id"/>
+                        <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+                        <Label Content="Name"/>
+                        <TextBox Text="{Binding StockName, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Content="IssuerId"/>
+                        <TextBox Text="{Binding IssuerId, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>            
         </Grid>
-
     </Grid>
 </UserControl>

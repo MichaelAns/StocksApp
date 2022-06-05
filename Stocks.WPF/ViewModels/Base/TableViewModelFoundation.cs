@@ -20,6 +20,7 @@ namespace Stocks.WPF.ViewModels.Base
         private ObservableCollection<TModel> _items;
         private TModel _selectedItem;
         protected List<int> _updatedItemsIds;
+        protected string _filter;
 
         public TModel SelectedItem
         {
@@ -53,6 +54,14 @@ namespace Stocks.WPF.ViewModels.Base
                 OnPropertyChanged(nameof(Items));
             }
         }
+
+        public virtual string Filter
+        {
+            get => _filter;
+            set => Set(ref _filter, value);
+        }
+
+
 
 
 
@@ -151,9 +160,9 @@ namespace Stocks.WPF.ViewModels.Base
         {
             _stocksDbContextFactory = new StocksDbContextFactory();
             _updatedItemsIds = new List<int>();
-            DeleteSelectedItem = new RelayCommand(DeleteItem, (obj)=>Configuration.IsAdmin);
-            AddNewRecord = new RelayCommand(AddRecord, (obj) => Configuration.IsAdmin);
-            CommitChanges = new RelayCommand(Commit, (obj) => Configuration.IsAdmin);
+            DeleteSelectedItem = new RelayCommand(DeleteItem, (obj)=>Configuration.IsAdmin && String.IsNullOrEmpty(_filter));
+            AddNewRecord = new RelayCommand(AddRecord, (obj) => Configuration.IsAdmin && String.IsNullOrEmpty(_filter));
+            CommitChanges = new RelayCommand(Commit, (obj) => Configuration.IsAdmin && String.IsNullOrEmpty(_filter));
         }
     }
 }

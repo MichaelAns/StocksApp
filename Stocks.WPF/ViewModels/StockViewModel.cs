@@ -13,30 +13,24 @@ namespace Stocks.WPF.ViewModels
                 Items = Configuration.Stocks;
             }
         }
-        public override string Filter
+        protected override void FilterAction(string value)
         {
-            get => _filter;
-            set
+            if (string.IsNullOrEmpty(_filter))
             {
-                _filter = value;
-                if (string.IsNullOrEmpty(_filter))
+                Items = Configuration.Stocks;
+            }
+            else
+            {
+                Items = new ObservableCollection<Stock>();
+                foreach (var stock in Configuration.Stocks)
                 {
-                    Items = Configuration.Stocks;
-                }
-                else
-                {
-                    Items = new ObservableCollection<Stock>();
-                    foreach (var stock in Configuration.Stocks)
+                    if (stock.Id.ToString().ToLower().Contains(value.ToLower()) ||
+                        stock.IssuerId.ToString().ToLower().Contains(value.ToLower()) ||
+                        stock.StockName.ToLower().Contains(value.ToLower()))
                     {
-                        if (stock.Id.ToString().ToLower().Contains(value.ToLower()) ||
-                            stock.IssuerId.ToString().ToLower().Contains(value.ToLower()) ||
-                            stock.StockName.ToLower().Contains(value.ToLower()))
-                        {
-                            Items.Add(stock);
-                        }
+                        Items.Add(stock);
                     }
                 }
-                OnPropertyChanged(nameof(Filter));
             }
         }
     }

@@ -15,32 +15,26 @@ namespace Stocks.WPF.ViewModels
                 Items = Configuration.Issuers;
             }
         }
-        public override string Filter
+        protected override void FilterAction(string value)
         {
-            get => _filter;
-            set
+            if (string.IsNullOrEmpty(_filter))
             {
-                _filter = value;
-                if (string.IsNullOrEmpty(_filter))
+                Items = Configuration.Issuers;
+            }
+            else
+            {
+                Items = new ObservableCollection<Issuer>();
+                foreach (var issuer in Configuration.Issuers)
                 {
-                    Items = Configuration.Issuers;
-                }
-                else
-                {
-                    Items = new ObservableCollection<Issuer>();
-                    foreach (var issuer in Configuration.Issuers)
+                    if (issuer.Id.ToString().ToLower().Contains(value.ToLower()) ||
+                        issuer.IssuerCost.ToString().ToLower().Contains(value.ToLower()) ||
+                            issuer.IssuerCountry.ToLower().Contains(value.ToLower()) ||
+                            issuer.IssuerName.ToLower().Contains(value.ToLower()) ||
+                            issuer.IssuerProfit.ToString().ToLower().Contains(value.ToLower()))
                     {
-                        if (issuer.Id.ToString().ToLower().Contains(value.ToLower()) ||
-                            issuer.IssuerCost.ToString().ToLower().Contains(value.ToLower()) ||
-                                issuer.IssuerCountry.ToLower().Contains(value.ToLower()) ||
-                                issuer.IssuerName.ToLower().Contains(value.ToLower()) ||
-                                issuer.IssuerProfit.ToString().ToLower().Contains(value.ToLower()))
-                        {
-                            Items.Add(issuer);
-                        }
+                        Items.Add(issuer);
                     }
                 }
-                OnPropertyChanged(nameof(Filter));
             }
         }
     }

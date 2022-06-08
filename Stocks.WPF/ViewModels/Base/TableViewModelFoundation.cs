@@ -55,11 +55,20 @@ namespace Stocks.WPF.ViewModels.Base
             }
         }
 
-        public virtual string Filter
+        #region Фильтр
+        public string Filter
         {
             get => _filter;
-            set => Set(ref _filter, value);
+            set
+            {
+                _filter = value;
+                FilterAction(value);
+                OnPropertyChanged(nameof(Filter));
+            }
         }
+
+        protected virtual void FilterAction(string value) { }
+        #endregion
 
 
 

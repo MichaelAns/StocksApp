@@ -119,6 +119,7 @@ namespace Stocks.WPF.ViewModels.Base
 
                     dbContext.SaveChanges();
                 }
+                MessageBox.Show("Successfully!");
             }
             catch (Exception exc)
             {

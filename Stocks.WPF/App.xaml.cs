@@ -18,7 +18,7 @@ namespace Stocks.WPF
             {
                 Configuration.Issuers = new ObservableCollection<Issuer>(dbContext.Issuer);
                 Configuration.Dividends = new ObservableCollection<Dividend>(dbContext.Dividend);
-                Configuration.Stocks = new ObservableCollection<Stock>(dbContext.Stock);
+                Configuration.Market = new ObservableCollection<Stock>(dbContext.Stock);
                 Configuration.MarketsStocks = new ObservableCollection<MarketStock>(dbContext.MarketStock);
                 Configuration.Markets = new ObservableCollection<Market>(dbContext.Market);
                 Configuration.CostByDates = new ObservableCollection<CostByDate>(dbContext.CostByDate);

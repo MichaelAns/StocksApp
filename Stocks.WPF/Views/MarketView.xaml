@@ -34,16 +34,27 @@
                     <DataGridTextColumn Binding="{Binding MarketCoutry}" Header="Country"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <ScrollViewer Grid.Column="1" Margin="30 10 0 0" HorizontalAlignment="Left" Padding="0" Width="250">
-                <StackPanel DataContext="{Binding SelectedItem}">
-                    <Label Content="Id"/>
-                    <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-                    <Label Content="Name"/>
-                    <TextBox Text="{Binding MarketName, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Label Content="Country"/>
-                    <TextBox Text="{Binding MarketCoutry, UpdateSourceTrigger=PropertyChanged}"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel>
+                    <Label Content="Filter" Grid.Row="0"/>
+                    <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-            </ScrollViewer>
+                <ScrollViewer Grid.Row="1" Margin="30 10 0 0" HorizontalAlignment="Left" Padding="0" Width="250">
+                    <StackPanel DataContext="{Binding SelectedItem}">
+                        <Label Content="Id"/>
+                        <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+                        <Label Content="Name"/>
+                        <TextBox Text="{Binding MarketName, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Content="Country"/>
+                        <TextBox Text="{Binding MarketCoutry, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            
         </Grid>
 
     </Grid>

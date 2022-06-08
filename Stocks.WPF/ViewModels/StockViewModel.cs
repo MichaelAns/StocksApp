@@ -10,19 +10,19 @@ namespace Stocks.WPF.ViewModels
         {
             using (var dbContext = _stocksDbContextFactory.CreateDbContext())
             {
-                Items = Configuration.Stocks;
+                Items = Configuration.Market;
             }
         }
         protected override void FilterAction(string value)
         {
             if (string.IsNullOrEmpty(_filter))
             {
-                Items = Configuration.Stocks;
+                Items = Configuration.Market;
             }
             else
             {
                 Items = new ObservableCollection<Stock>();
-                foreach (var stock in Configuration.Stocks)
+                foreach (var stock in Configuration.Market)
                 {
                     if (stock.Id.ToString().ToLower().Contains(value.ToLower()) ||
                         stock.IssuerId.ToString().ToLower().Contains(value.ToLower()) ||

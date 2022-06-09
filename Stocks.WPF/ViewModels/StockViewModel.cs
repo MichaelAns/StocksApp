@@ -1,6 +1,8 @@
 ﻿using Stocks.EntityFramework.Models;
 using Stocks.WPF.Infrastructures;
+using Stocks.WPF.Infrastructures.Commands;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Stocks.WPF.ViewModels
 {
@@ -8,10 +10,8 @@ namespace Stocks.WPF.ViewModels
     {
         public StockViewModel()
         {
-            using (var dbContext = _stocksDbContextFactory.CreateDbContext())
-            {
-                Items = Configuration.Market;
-            }
+            Items = Configuration.Market;
+            MakePlotCommand = new RelayCommand(MakePlotExecute, MakePlotCanExecute);
         }
         protected override void FilterAction(string value)
         {
@@ -33,5 +33,31 @@ namespace Stocks.WPF.ViewModels
                 }
             }
         }
+
+        #region Создание графика
+
+        //свойство
+        public ICommand MakePlotCommand { get;}
+
+        //метод
+        private void MakePlotExecute(object obj)
+        {
+            OpenViewModel.MainNavigator.CurrentViewModel = new PlotViewModel();
+        }
+
+        //можно ли
+        private bool MakePlotCanExecute(object obj)
+        {
+            if (SelectedItem!=null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
+
+
+
     }
 }

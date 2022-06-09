@@ -10,6 +10,7 @@
         MarketStock,
         CostByDate,
         Login,
-        Registration
+        Registration,
+        Plot
     }
 }

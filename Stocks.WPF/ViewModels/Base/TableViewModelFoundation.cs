@@ -70,10 +70,6 @@ namespace Stocks.WPF.ViewModels.Base
         protected virtual void FilterAction(string value) { }
         #endregion
 
-
-
-
-
         #region Операции с данными
 
         #region Команды

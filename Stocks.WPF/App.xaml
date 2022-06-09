@@ -41,6 +41,9 @@
             <DataTemplate DataType="{x:Type viewmodels:RegistrationViewModel}">
                 <views:RegistrationView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:PlotViewModel}">
+                <views:PlotView/>
+            </DataTemplate>
             
         </ResourceDictionary>
     </Application.Resources>

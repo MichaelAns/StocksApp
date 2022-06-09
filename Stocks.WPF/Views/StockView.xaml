@@ -37,6 +37,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0">
                     <Label Content="Filter" Grid.Row="0"/>
@@ -50,8 +51,10 @@
                         <TextBox Text="{Binding StockName, UpdateSourceTrigger=PropertyChanged}"/>
                         <Label Content="IssuerId"/>
                         <TextBox Text="{Binding IssuerId, UpdateSourceTrigger=PropertyChanged}"/>
+                        
                     </StackPanel>
                 </ScrollViewer>
+                <Button Grid.Row="2" Margin="0 10 10 10" Content="Открыть график" Command="{Binding MakePlotCommand}"/>
             </Grid>            
         </Grid>
     </Grid>

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Stocks.EntityFramework.Date;
@@ -11,9 +12,10 @@ using Stocks.EntityFramework.Date;
 namespace Stocks.EntityFramework.Migrations
 {
     [DbContext(typeof(StocksDbContext))]
-    partial class StocksDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220610140149_datetime")]
+    partial class datetime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,7 +32,7 @@ namespace Stocks.EntityFramework.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTimeOffset>("CbdDate")
+                    b.Property<DateTime>("CbdDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<double>("CbdPrice")
@@ -60,8 +62,8 @@ namespace Stocks.EntityFramework.Migrations
                     b.Property<double>("DivProfit")
                         .HasColumnType("double precision");
 
-                    b.Property<DateTimeOffset>("DivTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("DivTime")
+                        .HasColumnType("date");
 
                     b.Property<int>("StockId")
                         .HasColumnType("integer");

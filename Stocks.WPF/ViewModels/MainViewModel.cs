@@ -5,7 +5,7 @@ namespace Stocks.WPF.ViewModels
 {
     internal class MainViewModel : ViewModel
     {
-        public INavigator Navigator { get; set; } = new Navigator();
+        public INavigator Navigator { get; set; } = new Navigator(new StockViewModel());
         
     }
 }

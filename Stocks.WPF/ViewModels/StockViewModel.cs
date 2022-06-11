@@ -42,7 +42,7 @@ namespace Stocks.WPF.ViewModels
         //метод
         private void MakePlotExecute(object obj)
         {
-            OpenViewModel.MainNavigator.CurrentViewModel = new PlotViewModel();
+            OpenViewModel.MainNavigator.CurrentViewModel = new PlotViewModel(SelectedItem.Id);
         }
 
         //можно ли

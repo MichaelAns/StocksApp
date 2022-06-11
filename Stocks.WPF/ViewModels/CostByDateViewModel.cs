@@ -7,10 +7,7 @@ namespace Stocks.WPF.ViewModels
     {
         public CostByDateViewModel()
         {
-            using (var dbContext = _stocksDbContextFactory.CreateDbContext())
-            {
-                Items = Configuration.CostByDates;
-            }
+            Items = Configuration.CostByDates;
         }
     }
 }

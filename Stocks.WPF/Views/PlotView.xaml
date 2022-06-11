@@ -18,7 +18,11 @@
                 <oxy:LinearAxis Position="Left"/>
                 <oxy:DateTimeAxis Position="Bottom" />
             </oxy:Plot.Axes>
+            <oxy:LineSeries Color="Red"
+                                    ItemsSource="{Binding CostData}"
+                                    DataFieldX="CbdDate"
+                                    DataFieldY="CbdPrice"/>
         </oxy:Plot>
-        <Button Grid.Row="1" Content="Back" Command="{Binding BackCommand}" CommandParameter="{x:Static enums:ViewType.Stock}"/>
+        <Button Grid.Row="1" Content="Back" Command="{Binding BackCommand}" CommandParameter="{x:Static enums:ViewType.Main}"/>
     </Grid>
 </UserControl>

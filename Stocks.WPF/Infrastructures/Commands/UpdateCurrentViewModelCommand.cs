@@ -56,9 +56,9 @@ namespace Stocks.WPF.Infrastructures.Commands
                     case ViewType.Login:
                         _navigator.CurrentViewModel = new LoginViewModel();
                         break;
-                    case ViewType.Plot:
+                    /*case ViewType.Plot:
                         _navigator.CurrentViewModel = new PlotViewModel();
-                        break;
+                        break;*/
                     default:
                         _navigator.CurrentViewModel = new MainViewModel();
                         break;

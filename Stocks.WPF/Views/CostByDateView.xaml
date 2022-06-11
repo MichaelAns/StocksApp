@@ -40,6 +40,7 @@
                     <Label Content="Id"/>
                     <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
                     <Label Content="Date"/>
+                    
                     <TextBox Text="{Binding CbdDate, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Content="Price"/>
                     <TextBox Text="{Binding CbdPrice, UpdateSourceTrigger=PropertyChanged}"/>

@@ -39,6 +39,11 @@ namespace Stocks.WPF.ViewModels.Base
                     }
                     OnPropertyChanged(nameof(SelectedItem));
                 }
+                else
+                {
+                    _selectedItem = value;
+                    //OnPropertyChanged(nameof(SelectedItem));
+                }
             }
         }
 

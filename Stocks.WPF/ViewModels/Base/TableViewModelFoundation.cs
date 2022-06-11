@@ -1,4 +1,5 @@
 ﻿using Stocks.EntityFramework.Date;
+using Stocks.EntityFramework.Models;
 using Stocks.EntityFramework.Models.Base;
 using Stocks.WPF.Infrastructures;
 using Stocks.WPF.Infrastructures.Commands;
@@ -119,6 +120,13 @@ namespace Stocks.WPF.ViewModels.Base
                     _updatedItemsIds.Clear();
 
                     dbContext.SaveChanges();
+
+                    Configuration.Issuers = new ObservableCollection<Issuer>(dbContext.Issuer);
+                    Configuration.Dividends = new ObservableCollection<Dividend>(dbContext.Dividend);
+                    Configuration.Market = new ObservableCollection<Stock>(dbContext.Stock);
+                    Configuration.MarketsStocks = new ObservableCollection<MarketStock>(dbContext.MarketStock);
+                    Configuration.Markets = new ObservableCollection<Market>(dbContext.Market);
+                    Configuration.CostByDates = new ObservableCollection<CostByDate>(dbContext.CostByDate);
                 }
                 MessageBox.Show("Successfully!");
             }
@@ -132,12 +140,25 @@ namespace Stocks.WPF.ViewModels.Base
         {
             if (Items.Count != 0)
             {
-                Items.Add(new TModel() { Id = Items[^1].Id + 1 });
+                Items.Add(new TModel() { Id = MaxId() + 1 });
             }
             else
             {
                 Items.Add(new TModel() { Id = 1 });
             }
+        }
+
+        private int MaxId()
+        {
+            int max = Items[0].Id;
+            foreach (var item in Items)
+            {
+                if (item.Id > max)
+                {
+                    max = item.Id;
+                }
+            }
+            return max;
         }
 
         private void DeleteItem(object obj)

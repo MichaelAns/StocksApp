@@ -31,7 +31,7 @@ namespace Stocks.WPF.ViewModels
                 {
                     try
                     {
-                        _costData.Add(new CostAndDate() { Date = costByDate.CbdDate.Date, Price = costByDate.CbdPrice });
+                        _costData.Add(new CostAndDate() { Date = costByDate.CbdDate.DateTime, Price = costByDate.CbdPrice });
                     }
                     catch (System.Exception exc)
                     {

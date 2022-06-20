@@ -13,8 +13,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="StocksApp"/>
-        <TextBlock Grid.Row="1" Text="Created by Михаил Щукин"/>
+        <TextBlock Grid.Row="0" Text="StocksApp" FontSize="24" Padding="5"/>
+        <TextBlock Grid.Row="1" Text="Created by Михаил Щукин" Padding="5"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>

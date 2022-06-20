@@ -11,6 +11,7 @@ namespace Stocks.WPF.ViewModels
     {
         //private int _stockID;
         private int _marketStockID;
+        private string _title;
         private ObservableCollection<CostAndDate> _costData = new ObservableCollection<CostAndDate>();
 
         //констркутор
@@ -22,6 +23,7 @@ namespace Stocks.WPF.ViewModels
                 if (marketStock.StockId == stockID)
                 {
                     _marketStockID = marketStock.Id;
+                    _title = $"Cost ({marketStock.MsCurrency})";
                     break;
                 }
             }
@@ -42,8 +44,9 @@ namespace Stocks.WPF.ViewModels
             }
         }
 
-        //свойсто
+        //свойства
         public ObservableCollection<CostAndDate> CostData { get => _costData; set => Set(ref _costData, value); }
+        public string Title { get => _title; set => Set(ref _title, value); }
 
 
         //команды

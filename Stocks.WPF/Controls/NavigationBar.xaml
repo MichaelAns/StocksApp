@@ -15,7 +15,10 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="StocksApp" FontSize="24" Padding="5"/>
         <TextBlock Grid.Row="1" Text="Created by Михаил Щукин" Padding="5"/>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" RenderOptions.EdgeMode="Aliased">
+            <Grid.Resources>
+                <Style TargetType="RadioButton" BasedOn="{StaticResource NavButton}"/>
+            </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>

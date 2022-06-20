@@ -15,8 +15,8 @@
         </Grid.RowDefinitions>
         <oxy:Plot Grid.Row="0" Height="400">
             <oxy:Plot.Axes>
-                <oxy:LinearAxis Position="Left"/>
-                <oxy:DateTimeAxis Position="Bottom" />
+                <oxy:LinearAxis Position="Left" Title="{Binding Title}"/>
+                <oxy:DateTimeAxis Position="Bottom" Title="Date"/>
             </oxy:Plot.Axes>
             <oxy:LineSeries Color="Red"
                                     ItemsSource="{Binding CostData}"

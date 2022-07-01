@@ -4,9 +4,10 @@ namespace Stocks.EntityFramework.Models
 {
     public class CostByDate : BaseEntity
     {
-        public DateTimeOffset CbdDate { get; set; }
-        public double CbdPrice { get; set; }
-        //public int MarketStockId { get; set; }
-        //public MarketStock MarketStock { get; set; }
+        public DateTime TradeDate { get; set; }
+        public double? LegalClosePrice { get; set; }
+        public double? Close { get; set; }
+        public string StockSecID { get; set; }
+        public Stock Stock { get; set; }
     }
 }

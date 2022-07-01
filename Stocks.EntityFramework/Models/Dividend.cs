@@ -6,10 +6,10 @@ namespace Stocks.EntityFramework.Models
 {
     public class Dividend : BaseEntity
     {
-        public DateTimeOffset DivTime { get; set; }
-        public double DivAmount { get; set; }
-        public double DivProfit { get; set; }
-        public int StockId { get; set; }
+        public DateTime RegistryCloseDate { get; set; }
+        public double Value { get; set; }
+        public string CurrencyID { get; set; }        
+        public string StockSecID { get; set; }
         public Stock Stock { get; set; }
     }
 }

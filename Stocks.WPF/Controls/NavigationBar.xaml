@@ -35,7 +35,6 @@
             <RadioButton Grid.Column="3" Content="MarketStock" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.MarketStock}"/>
             <RadioButton Grid.Column="4" Content="Dividend" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.Dividend}"/>
             <RadioButton Grid.Column="5" Content="CostByDate" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static enums:ViewType.CostByDate}"/>            
-        </Grid>
-            
+        </Grid>            
     </Grid>
 </UserControl>

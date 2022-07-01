@@ -7,7 +7,7 @@ namespace Stocks.EntityFramework.Date
     {
         public StocksDbContext(DbContextOptions options) : base(options) 
         {
-            DataBase.EnsureCreated();
+            Database.EnsureCreated();
         }
         public DbSet<User> User { get; set; }
         public DbSet<Stock> Stock { get; set; }

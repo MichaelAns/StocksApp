@@ -12,6 +12,7 @@ namespace Stocks.WPF.ViewModels
         {
             Items = Configuration.Market;
             MakePlotCommand = new RelayCommand(MakePlotExecute, MakePlotCanExecute);
+            LookDividendsCommand = new RelayCommand(LookDividendsExecute, obj => true);
         }
         protected override void FilterAction(string value)
         {
@@ -25,7 +26,7 @@ namespace Stocks.WPF.ViewModels
                 foreach (var stock in Configuration.Market)
                 {
                     if (stock.Id.ToString().ToLower().Contains(value.ToLower()) ||
-                        stock.IssuerId.ToString().ToLower().Contains(value.ToLower()) ||
+                        //stock.IssuerId.ToString().ToLower().Contains(value.ToLower()) ||
                         stock.StockName.ToLower().Contains(value.ToLower()))
                     {
                         Items.Add(stock);
@@ -42,13 +43,36 @@ namespace Stocks.WPF.ViewModels
         //метод
         private void MakePlotExecute(object obj)
         {
-            OpenViewModel.MainNavigator.CurrentViewModel = new PlotViewModel(SelectedItem.Id);
+            //OpenViewModel.MainNavigator.CurrentViewModel = new PlotViewModel(SelectedItem.Id);
         }
 
         //можно ли
         private bool MakePlotCanExecute(object obj)
         {
             if (SelectedItem!=null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region Просмотр дивидендов
+
+        //свойство
+        public ICommand LookDividendsCommand { get; }
+
+        //execute
+        private void LookDividendsExecute(object obj)
+        {
+            OpenViewModel.MainNavigator.CurrentViewModel = new DividendViewModel(SelectedItem);
+        }
+
+        //can execute
+        private bool LookDividendsCanExecute(object obj)
+        {
+            if (SelectedItem != null)
             {
                 return true;
             }

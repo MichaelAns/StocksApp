@@ -2,7 +2,7 @@
 
 namespace Stocks.EntityFramework.Models
 {
-    public class MarketStock : BaseEntity
+    /*public class MarketStock : BaseEntity
     {
         public int StockId { get; set; }
         public Stock Stock { get; set; }
@@ -10,5 +10,5 @@ namespace Stocks.EntityFramework.Models
         public Market Market { get; set; }  
         public string MsCurrency { get; set; }
         public ICollection<CostByDate>? CostsByDates { get; set; }
-    }
+    }*/
 }

@@ -1,8 +1,5 @@
-﻿using Stocks.EntityFramework.Models;
-using Stocks.WPF.Infrastructures;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Stocks.WPF.ViewModels
@@ -15,7 +12,7 @@ namespace Stocks.WPF.ViewModels
         private ObservableCollection<CostAndDate> _costData = new ObservableCollection<CostAndDate>();
 
         //констркутор
-        public PlotViewModel(int stockID)
+        /*public PlotViewModel(int stockID)
         {
             //_stockID = stockID;
             foreach (var marketStock in Configuration.MarketsStocks)
@@ -42,7 +39,7 @@ namespace Stocks.WPF.ViewModels
 
                 }
             }
-        }
+        }*/
 
         //свойства
         public ObservableCollection<CostAndDate> CostData { get => _costData; set => Set(ref _costData, value); }
@@ -54,7 +51,7 @@ namespace Stocks.WPF.ViewModels
 
     }
     internal struct CostAndDate
-    {        
+    {
         public double Price { get; set; }
         public DateTime Date { get; set; }
     }

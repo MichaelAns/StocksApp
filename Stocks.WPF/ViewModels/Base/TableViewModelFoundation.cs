@@ -121,12 +121,12 @@ namespace Stocks.WPF.ViewModels.Base
 
                     dbContext.SaveChanges();
 
-                    Configuration.Issuers = new ObservableCollection<Issuer>(dbContext.Issuer);
+                    /*//Configuration.Issuers = new ObservableCollection<Issuer>(dbContext.Issuer);
                     Configuration.Dividends = new ObservableCollection<Dividend>(dbContext.Dividend);
                     Configuration.Market = new ObservableCollection<Stock>(dbContext.Stock);
-                    Configuration.MarketsStocks = new ObservableCollection<MarketStock>(dbContext.MarketStock);
+                    //Configuration.MarketsStocks = new ObservableCollection<MarketStock>(dbContext.MarketStock);
                     Configuration.Markets = new ObservableCollection<Market>(dbContext.Market);
-                    Configuration.CostByDates = new ObservableCollection<CostByDate>(dbContext.CostByDate);
+                    Configuration.CostByDates = new ObservableCollection<CostByDate>(dbContext.CostByDate);*/
                 }
                 MessageBox.Show("Successfully!");
             }

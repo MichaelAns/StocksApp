@@ -31,7 +31,7 @@ namespace Stocks.WPF.Infrastructures.Commands
                 {
                     //таблицы
                     case ViewType.Issuer:
-                        _navigator.CurrentViewModel = new IssuerViewModel();
+                        //_navigator.CurrentViewModel = new IssuerViewModel();
                         break;
                     case ViewType.Stock:
                         _navigator.CurrentViewModel = new StockViewModel();
@@ -40,7 +40,7 @@ namespace Stocks.WPF.Infrastructures.Commands
                         _navigator.CurrentViewModel = new MarketViewModel();
                         break;
                     case ViewType.MarketStock:
-                        _navigator.CurrentViewModel = new MarketStockViewModel();
+                        //_navigator.CurrentViewModel = new MarketStockViewModel();
                         break;
                     case ViewType.Dividend:
                         _navigator.CurrentViewModel = new DividendViewModel();

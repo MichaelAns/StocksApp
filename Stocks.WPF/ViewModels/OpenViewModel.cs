@@ -1,10 +1,5 @@
 ﻿using Stocks.WPF.Infrastructures.Navigators;
 using Stocks.WPF.ViewModels.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Stocks.WPF.ViewModels
 {

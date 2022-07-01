@@ -1,10 +1,6 @@
 ﻿using Stocks.EntityFramework.Models;
 using Stocks.WPF.Infrastructures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Stocks.WPF.ViewModels
 {
@@ -12,10 +8,16 @@ namespace Stocks.WPF.ViewModels
     {
         public DividendViewModel()
         {
+        }
+
+        public DividendViewModel(Stock selectedItem)
+        {
             using (var dbContext = _stocksDbContextFactory.CreateDbContext())
             {
                 Items = Configuration.Dividends;
             }
         }
+
+        public ICommand BackCommand => OpenViewModel.MainNavigator.UpdateCurrentViewModelCommand;
     }
 }

@@ -13,15 +13,11 @@
             </ResourceDictionary.MergedDictionaries>
 
 
-            <DataTemplate DataType="{x:Type viewmodels:IssuerViewModel}">
-                <views:IssuerView/>
-            </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:StockViewModel}">
                 <views:StockView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:MarketStockViewModel}">
-                <views:MarketStockView/>
-            </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:DividendViewModel}">
                 <views:DividendView/>
             </DataTemplate>

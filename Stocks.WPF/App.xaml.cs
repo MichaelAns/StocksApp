@@ -16,12 +16,12 @@ namespace Stocks.WPF
         {
             using (var dbContext = new StocksDbContextFactory().CreateDbContext())
             {
-                Configuration.Issuers = new ObservableCollection<Issuer>(dbContext.Issuer);
+                /*Configuration.Issuers = new ObservableCollection<Issuer>(dbContext.Issuer);
                 Configuration.Dividends = new ObservableCollection<Dividend>(dbContext.Dividend);
                 Configuration.Market = new ObservableCollection<Stock>(dbContext.Stock);
                 Configuration.MarketsStocks = new ObservableCollection<MarketStock>(dbContext.MarketStock);
                 Configuration.Markets = new ObservableCollection<Market>(dbContext.Market);
-                Configuration.CostByDates = new ObservableCollection<CostByDate>(dbContext.CostByDate);
+                Configuration.CostByDates = new ObservableCollection<CostByDate>(dbContext.CostByDate);*/
             }
             Window window = new MainWindow();
             window.DataContext = new OpenViewModel();

@@ -6,7 +6,7 @@ namespace Stocks.EntityFramework.Models
     {
         public string MarketName { get; set; }
         public string MarketCoutry { get; set; }
-        public ICollection<MarketStock>? MarketsStocks { get; set; }
+        //public ICollection<MarketStock>? MarketsStocks { get; set; }
         
     }
 }

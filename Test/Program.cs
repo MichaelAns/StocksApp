@@ -18,8 +18,5 @@ static async Task<string> GetStocksAsync()
         string jsonResponse  = await response.Content.ReadAsStringAsync();
         return jsonResponse;
     }
-    //using var dataStream = GetStocksStreamAsync().Result;
-    //using var dataReader = new StreamReader(dataStream);
-    //return await dataReader.ReadToEndAsync();
 }
 

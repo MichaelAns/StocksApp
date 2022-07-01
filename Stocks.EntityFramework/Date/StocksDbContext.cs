@@ -7,15 +7,15 @@ namespace Stocks.EntityFramework.Date
     {
         public StocksDbContext(DbContextOptions options) : base(options) 
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
         public DbSet<User> User { get; set; }
         public DbSet<Stock> Stock { get; set; }
         public DbSet<Dividend> Dividend { get; set; }
-        public DbSet<MarketStock> MarketStock { get; set; }
+        //public DbSet<MarketStock> MarketStock { get; set; }
         public DbSet<Market> Market { get; set; }        
         public DbSet<CostByDate> CostByDate { get; set; }
-        public DbSet<Issuer> Issuer { get; set; }
+        //public DbSet<Issuer> Issuer { get; set; }
 
 
     }

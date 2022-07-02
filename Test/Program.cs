@@ -1,22 +1,7 @@
-﻿const string _uri = @"https://iss.moex.com/iss/engines/stock/markets/shares/securities.json?iss.meta=off&securities.columns=SECID,SECNAME&iss.version=off&iss.only=securities";
-Console.WriteLine(await GetStocksAsync());
+﻿using Stocks.API.Services;
+using Stocks.EntityFramework.Models;
+using System.Collections.ObjectModel;
 
-static async Task<Stream> GetStocksStreamAsync()
-{    
-    using (var client = new HttpClient())
-    {
-        var response = await client.GetAsync(_uri);
-        return await response.Content.ReadAsStreamAsync();
-        //return await client.GetStreamAsync(_uri);
-    }
-}
-static async Task<string> GetStocksAsync()
-{
-    using (var client = new HttpClient())
-    {
-        var response = await client.GetAsync(_uri);
-        string jsonResponse  = await response.Content.ReadAsStringAsync();
-        return jsonResponse;
-    }
-}
+ObservableCollection<Stock> stocks = await ApiService.GetStocks();
+Console.Read();
 

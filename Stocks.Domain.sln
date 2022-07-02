@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stocks.WPF", "Stocks.WPF\St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{1DF7C02C-D5C3-4CC3-AF24-CEE99BC617EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocks.API", "Stocks.API\Stocks.API.csproj", "{AAB990A5-E77B-4D67-91F6-2774D995CEF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1DF7C02C-D5C3-4CC3-AF24-CEE99BC617EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DF7C02C-D5C3-4CC3-AF24-CEE99BC617EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DF7C02C-D5C3-4CC3-AF24-CEE99BC617EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAB990A5-E77B-4D67-91F6-2774D995CEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAB990A5-E77B-4D67-91F6-2774D995CEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAB990A5-E77B-4D67-91F6-2774D995CEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAB990A5-E77B-4D67-91F6-2774D995CEF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

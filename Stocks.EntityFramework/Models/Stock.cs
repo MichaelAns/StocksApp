@@ -3,7 +3,7 @@
 namespace Stocks.EntityFramework.Models
 {
     public class Stock : BaseEntity
-    {        
+    {
         public string SecID { get; set; }
         public string SecName { get; set; }
         public string CurrencyID { get; set; }

@@ -26,8 +26,7 @@ namespace Stocks.WPF.ViewModels
                 foreach (var stock in Configuration.Market)
                 {
                     if (stock.Id.ToString().ToLower().Contains(value.ToLower()) ||
-                        //stock.IssuerId.ToString().ToLower().Contains(value.ToLower()) ||
-                        stock.StockName.ToLower().Contains(value.ToLower()))
+                        stock.SecID.ToLower().Contains(value.ToLower()))
                     {
                         Items.Add(stock);
                     }

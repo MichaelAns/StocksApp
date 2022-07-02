@@ -2,8 +2,8 @@
 
 namespace Stocks.API.Services.Base
 {
-    public interface IApiService<T>
+    public interface IApiService<Model>
     {
-        public Task<ObservableCollection<T>> Get();
+        public Task<ObservableCollection<Model>> Get();
     }
 }

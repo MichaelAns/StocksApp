@@ -8,7 +8,7 @@
         xmlns:viewmodels="clr-namespace:Stocks.WPF.ViewModels"
         
         mc:Ignorable="d"
-        Title="StocksDbApp" Height="550" Width="1000">
+        Title="StocksDbApp" Height="600" Width="1000">
 
     <Grid>
         <ContentControl Content="{Binding MainNavigator.CurrentViewModel}"/>

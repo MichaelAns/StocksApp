@@ -8,7 +8,7 @@
              xmlns:enums="clr-namespace:Stocks.WPF.Infrastructures.Enums"
              xmlns:vm="clr-namespace:Stocks.WPF.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="1000">
+             d:DesignHeight="650" d:DesignWidth="900">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -31,30 +31,37 @@
             <DataGrid x:Name="providerDataGrid" IsReadOnly="True" Grid.Column="0" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" RowDetailsVisibilityMode="VisibleWhenSelected">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Id}" Header="Id"/>
-                    <DataGridTextColumn Binding="{Binding StockName}" Header="Name"/>
-                    <DataGridTextColumn Binding="{Binding IssuerId}" Header="IssuerId"/>
+                    <DataGridTextColumn Binding="{Binding SecID}" Header="SecId"/>
+                    <DataGridTextColumn Binding="{Binding SecName}" Header="SecName"/>
+                    <DataGridTextColumn Binding="{Binding CurrencyID}" Header="CurrencyID"/>
+                    <DataGridTextColumn Binding="{Binding MarketID}" Header="MarketID"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Grid Grid.Column="1" Margin="10 0 10 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" >
                     <Label Content="Filter" Grid.Row="0"/>
                     <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-                <StackPanel DataContext="{Binding SelectedItem}" Grid.Row="1">
+                <ScrollViewer Grid.Row="1">
+                <StackPanel DataContext="{Binding SelectedItem}" >
                     <Label Content="Id"/>
                     <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-                    <Label Content="Name"/>
-                    <TextBox Text="{Binding StockName, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Label Content="IssuerId"/>
-                    <TextBox Text="{Binding IssuerId, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="SecId"/>
+                    <TextBox Text="{Binding SecId, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="SecName"/>
+                    <TextBox Text="{Binding SecName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="CurrencyID"/>
+                    <TextBox Text="{Binding CurrencyID, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="MarketID"/>
+                    <TextBox Text="{Binding MarketID, UpdateSourceTrigger=PropertyChanged}"/>                    
                 </StackPanel>
-                <Grid Grid.Row="3">
+                </ScrollViewer>
+                <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>

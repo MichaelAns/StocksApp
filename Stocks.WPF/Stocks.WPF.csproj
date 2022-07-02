@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Stocks.API\Stocks.API.csproj" />
     <ProjectReference Include="..\Stocks.EntityFramework\Stocks.EntityFramework.csproj" />
   </ItemGroup>
 

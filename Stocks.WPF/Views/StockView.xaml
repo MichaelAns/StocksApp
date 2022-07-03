@@ -52,7 +52,7 @@
                     <Label Content="Id"/>
                     <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
                     <Label Content="SecId"/>
-                    <TextBox Text="{Binding SecId, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Text="{Binding SecID, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Content="SecName"/>
                     <TextBox Text="{Binding SecName, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Content="CurrencyID"/>

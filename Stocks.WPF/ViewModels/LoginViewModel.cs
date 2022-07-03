@@ -48,6 +48,7 @@ namespace Stocks.WPF.ViewModels
                     user = await dbContext.Set<User>().FirstOrDefaultAsync((e) => e.UserLogin == _login && e.UserPassword == _password);
                 }
                 Configuration.IsAdmin = user.UserIsAdmin;
+                //Configuration.IsAdmin = true;
                 OpenViewModel.MainNavigator.CurrentViewModel = new MainViewModel();
             }
             catch

@@ -9,6 +9,9 @@ using System.Collections.ObjectModel;
 
 var costByDateApiService = new CostByDateApiService("KMAZ");
 
-var cbd = await costByDateApiService.Get();
+new CostByDateApiService("KMAZ").Get().ContinueWith((task) =>
+{
+    var CostByDate = task.Result;
+});
 Console.Read();
 

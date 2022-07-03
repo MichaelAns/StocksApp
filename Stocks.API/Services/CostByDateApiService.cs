@@ -1,8 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
-using Stocks.API.Models;
+﻿using Stocks.API.Models;
 using Stocks.API.Services.Base;
 using Stocks.EntityFramework.Models;
-using System.Collections.ObjectModel;
 
 namespace Stocks.API.Services
 {
@@ -22,9 +20,9 @@ namespace Stocks.API.Services
             models.Add(new CostByDate()
             {
                 Id = 0,
-                TradeDate = new DateOnly(int.Parse(date[0]), int.Parse(date[1]), int.Parse(date[2])), //парсинг строки с датой на тип данных дата
-                Close = apiModel.CLOSE,
-                LegalClosePrice = apiModel.LEGALCLOSEPRICE,
+                TradeDate = new DateTime(int.Parse(date[0]), int.Parse(date[1]), int.Parse(date[2])), //парсинг строки с датой на тип данных дата
+                Close = apiModel.LEGALCLOSEPRICE is not null? (double)apiModel.LEGALCLOSEPRICE : (double)apiModel.CLOSE,
+                //LegalClosePrice = apiModel.LEGALCLOSEPRICE,
                 StockSecID = _stockSecID
             });
         }

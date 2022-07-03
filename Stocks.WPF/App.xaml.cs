@@ -16,8 +16,7 @@ namespace Stocks.WPF
     {
         protected override async void OnStartup(StartupEventArgs e)
         {
-            var apiService = new StockApiService();
-            Configuration.Market = await apiService.Get();
+            Configuration.Market = await new StockApiService().Get();
             /*using (var dbContext = new StocksDbContextFactory().CreateDbContext())
             {
                 *//*Configuration.Issuers = new ObservableCollection<Issuer>(dbContext.Issuer);

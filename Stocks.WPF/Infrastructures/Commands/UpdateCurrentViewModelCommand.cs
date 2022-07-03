@@ -34,13 +34,10 @@ namespace Stocks.WPF.Infrastructures.Commands
                         //_navigator.CurrentViewModel = new IssuerViewModel();
                         break;
                     case ViewType.Stock:
-                        _navigator.CurrentViewModel = new StockViewModel();
+                        _navigator.CurrentViewModel = StockViewModel.LoadStockViewModel();
                         break;
                     case ViewType.Market:
                         _navigator.CurrentViewModel = new MarketViewModel();
-                        break;
-                    case ViewType.MarketStock:
-                        //_navigator.CurrentViewModel = new MarketStockViewModel();
                         break;
                     case ViewType.Dividend:
                         _navigator.CurrentViewModel = new DividendViewModel();

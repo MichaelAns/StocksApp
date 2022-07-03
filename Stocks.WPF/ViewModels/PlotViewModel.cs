@@ -29,9 +29,7 @@ namespace Stocks.WPF.ViewModels
         public static PlotViewModel LoadPlotViewModel(Stock stock)
         {
             PlotViewModel plot = new PlotViewModel(stock);
-            plot.CostDate = Configuration.CostByDates;
             plot.LoadCostByDate();
-            //plot.GetCostAndData();
             return plot;
         }
 
@@ -42,7 +40,6 @@ namespace Stocks.WPF.ViewModels
                 if (task.Exception == null)
                 {
                     CostDate = task.Result;
-                    for (int i = 0; i < 10; i++) ;
                 }
             });
         }

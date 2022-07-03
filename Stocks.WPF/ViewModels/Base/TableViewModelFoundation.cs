@@ -17,11 +17,12 @@ namespace Stocks.WPF.ViewModels.Base
         where TModel : BaseEntity, new()
     {
         protected readonly StocksDbContextFactory _stocksDbContextFactory;
+        protected ObservableCollection<TModel> _allItems;        
+        protected List<int> _updatedItemsIds;
+        protected string _filter;
 
         private ObservableCollection<TModel> _items;
         private TModel _selectedItem;
-        protected List<int> _updatedItemsIds;
-        protected string _filter;
 
         public TModel SelectedItem
         {

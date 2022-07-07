@@ -1,10 +1,6 @@
 ﻿using Stocks.API.Services;
 using Stocks.EntityFramework.Models;
-using Stocks.WPF.Infrastructures;
-using System;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Stocks.WPF.ViewModels
@@ -44,21 +40,6 @@ namespace Stocks.WPF.ViewModels
             });
         }
 
-        /*private void GetCostAndData()
-        {
-            foreach (CostByDate costByDate in _costByDate)
-            {
-                try
-                {
-                    CostDate.Add(new CostAndDate() { Date = new DateTime(costByDate.TradeDate.Year, costByDate.TradeDate.Month, costByDate.TradeDate.Day), Price = costByDate.Close });
-                }
-                catch (System.Exception exc)
-                {
-                    MessageBox.Show(exc.Message);
-                }
-            }
-        }*/
-
         #endregion
 
         //свойства
@@ -69,10 +50,5 @@ namespace Stocks.WPF.ViewModels
         //команды
         public ICommand BackCommand => OpenViewModel.MainNavigator.UpdateCurrentViewModelCommand;
 
-    }
-    internal struct CostAndDate
-    {
-        public double Price { get; set; }
-        public DateTime Date { get; set; }
     }
 }

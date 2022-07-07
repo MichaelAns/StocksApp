@@ -17,12 +17,11 @@ namespace Stocks.API.Services
         protected override void Add(CBD apiModel)
         {
             string[] date = apiModel.TRADEDATE.Split('-'); //разбиение строки с датой на данные для типа данных дата
-            models.Add(new CostByDate()
+            _models.Add(new CostByDate()
             {
                 Id = 0,
                 TradeDate = new DateTime(int.Parse(date[0]), int.Parse(date[1]), int.Parse(date[2])), //парсинг строки с датой на тип данных дата
                 Close = apiModel.LEGALCLOSEPRICE is not null? (double)apiModel.LEGALCLOSEPRICE : (double)apiModel.CLOSE,
-                //LegalClosePrice = apiModel.LEGALCLOSEPRICE,
                 StockSecID = _stockSecID
             });
         }

@@ -11,5 +11,6 @@ namespace Stocks.EntityFramework.Models
         public string CurrencyID { get; set; }        
         public string StockSecID { get; set; }
         public Stock Stock { get; set; }
+        public string Isin { get; set; }
     }
 }

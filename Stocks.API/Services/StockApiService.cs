@@ -14,7 +14,7 @@ namespace Stocks.API.Services
 
         protected override void Add(Securitie apiModel)
         {
-            models.Add(new Stock()
+            _models.Add(new Stock()
             {
                 Id = 0,
                 CurrencyID = apiModel.CURRENCYID,

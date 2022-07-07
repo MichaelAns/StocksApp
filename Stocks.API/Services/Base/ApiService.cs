@@ -7,7 +7,7 @@ namespace Stocks.API.Services.Base
     {
         protected string _uri;
         protected string _blockName;
-        protected ObservableCollection<Model> models;
+        protected ObservableCollection<Model> _models;
 
         public async Task<ObservableCollection<Model>> Get()
         {
@@ -15,12 +15,12 @@ namespace Stocks.API.Services.Base
             {
                 var response = await client.GetAsync(_uri);
                 string jsonResponse = await response.Content.ReadAsStringAsync();
-                return JsonToStocks(jsonResponse);
+                return JsonToModels(jsonResponse);
             }
         }
         protected abstract void Add(ApiModel apiModel);
 
-        private ObservableCollection<Model> JsonToStocks(string jsonResponse)
+        private ObservableCollection<Model> JsonToModels(string jsonResponse)
         {
             try
             {
@@ -36,12 +36,12 @@ namespace Stocks.API.Services.Base
         }
         private ObservableCollection<Model> ApiModelToModel(List<ApiModel> apiModels)
         {
-            models = new ObservableCollection<Model>();
+            var _models = new ObservableCollection<Model>();
             foreach (var apiModel in apiModels)
             {
                 Add(apiModel);
             }
-            return models;
+            return _models;
         }
 
     }

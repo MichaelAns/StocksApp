@@ -1,6 +1,6 @@
 ﻿namespace Stocks.API.Models
 {
-    internal class Div
+    public class Div
     {
         public string secid { get; set; }
         public string isin { get; set; }

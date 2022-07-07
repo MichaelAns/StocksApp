@@ -1,23 +1,31 @@
 ﻿using Stocks.EntityFramework.Models;
-using Stocks.WPF.Infrastructures;
+using Stocks.API.Services;
 using System.Windows.Input;
 
 namespace Stocks.WPF.ViewModels
 {
     internal class DividendViewModel : Base.TableViewModelFoundation<Dividend>
     {
-        public DividendViewModel()
-        {
-        }
 
-        public DividendViewModel(Stock selectedItem)
+        //конструктор
+        public DividendViewModel(Stock stock)
         {
-            using (var dbContext = _stocksDbContextFactory.CreateDbContext())
+            LoadDividend(stock);
+        }        
+
+        //загрузка данных
+        private void LoadDividend(Stock stock)
+        {
+            new DividendApiService(stock.SecID).Get().ContinueWith(task =>
             {
-                Items = Configuration.Dividends;
-            }
+                if (task.Exception == null)
+                {
+                    _allItems = task.Result;
+                    Items = _allItems;
+                }
+            });
         }
 
-        public ICommand BackCommand => OpenViewModel.MainNavigator.UpdateCurrentViewModelCommand;
+        public ICommand BackCommand => OpenViewModel.MainNavigator.UpdateCurrentViewModelCommand;        
     }
 }

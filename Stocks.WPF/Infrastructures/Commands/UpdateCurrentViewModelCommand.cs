@@ -39,9 +39,6 @@ namespace Stocks.WPF.Infrastructures.Commands
                     case ViewType.Market:
                         _navigator.CurrentViewModel = new MarketViewModel();
                         break;
-                    case ViewType.Dividend:
-                        _navigator.CurrentViewModel = new DividendViewModel();
-                        break;
                     case ViewType.CostByDate:
                         _navigator.CurrentViewModel = new CostByDateViewModel();
                         break;

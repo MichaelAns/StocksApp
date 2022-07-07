@@ -36,7 +36,7 @@ namespace Stocks.API.Services.Base
         }
         private ObservableCollection<Model> ApiModelToModel(List<ApiModel> apiModels)
         {
-            var _models = new ObservableCollection<Model>();
+            _models = new ObservableCollection<Model>();
             foreach (var apiModel in apiModels)
             {
                 Add(apiModel);

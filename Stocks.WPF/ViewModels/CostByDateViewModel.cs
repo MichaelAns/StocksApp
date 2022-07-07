@@ -7,7 +7,6 @@ namespace Stocks.WPF.ViewModels
     {
         public CostByDateViewModel()
         {
-            Items = Configuration.CostByDates;
         }
     }
 }

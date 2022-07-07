@@ -16,8 +16,7 @@ namespace Stocks.WPF.ViewModels
         public PlotViewModel(Stock stock)
         {
             _stock = stock;
-            Title = stock.CurrencyID;            
-
+            Title = stock.CurrencyID;  
         }
 
         #region Методы

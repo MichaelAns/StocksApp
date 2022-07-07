@@ -30,11 +30,10 @@
 
             <DataGrid x:Name="providerDataGrid" IsReadOnly="True" Grid.Column="0" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" RowDetailsVisibilityMode="VisibleWhenSelected">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Id}" Header="Id"/>
-                    <DataGridTextColumn Binding="{Binding DivTime}" Header="Date"/>
-                    <DataGridTextColumn Binding="{Binding DivAmount}" Header="Amount"/>
-                    <DataGridTextColumn Binding="{Binding DivProfit}" Header="Profit"/>
-                    <DataGridTextColumn Binding="{Binding StockId}" Header="StockId"/>
+                    <DataGridTextColumn Binding="{Binding Isin}" Header="Isin"/>
+                    <DataGridTextColumn Binding="{Binding RegistryCloseDate}" Header="RegistryCloseDate"/>
+                    <DataGridTextColumn Binding="{Binding Value}" Header="Value"/>
+                    <DataGridTextColumn Binding="{Binding CurrencyID}" Header="Currency"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Grid Grid.Column="1">
@@ -42,19 +41,17 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel DataContext="{Binding SelectedItem}" Grid.Row="0" Margin="10 10 30 0">
-                    <Label Content="Id"/>
-                    <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-                    <Label Content="Date"/>
-                    <TextBox Text="{Binding DivTime, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Label Content="Amount"/>
-                    <TextBox Text="{Binding DivAmount, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Label Content="Profit"/>
-                    <TextBox Text="{Binding DivProfit, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Label Content="StockId"/>
-                    <TextBox Text="{Binding StockId, UpdateSourceTrigger=PropertyChanged}"/>
+                <StackPanel DataContext="{Binding SelectedItem}" Grid.Row="0" Margin="10 10 30 0">                    
+                    <Label Content="Isin"/>
+                    <TextBox Text="{Binding Isin, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="RegistryCloseDate"/>
+                    <TextBox Text="{Binding RegistryCloseDate, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="Value"/>
+                    <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="Currency"/>
+                    <TextBox Text="{Binding CurrencyID, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-                <Button Grid.Row="1" Content="Назад" Margin="0,100,10,46" Command="{Binding BackCommand}" CommandParameter="{x:Static enums:ViewType.Main}"/>
+                <Button Grid.Row="1" Content="Назад" Margin="0,50,10,46" Command="{Binding BackCommand}" CommandParameter="{x:Static enums:ViewType.Main}"/>
 
             </Grid>
         </Grid>

@@ -12,10 +12,8 @@ namespace Stocks.WPF.ViewModels
         private static StockViewModel _stockViewModel;
         private StockViewModel()
         {
-            //Items = Configuration.Market;
-            //_stockViewModel.LoadStock();
             MakePlotCommand = new RelayCommand(MakePlotExecute, MakePlotCanExecute);
-            LookDividendsCommand = new RelayCommand(LookDividendsExecute, obj => true);
+            LookDividendsCommand = new RelayCommand(LookDividendsExecute, LookDividendsCanExecute);
         }
 
         //фабрика
@@ -27,7 +25,6 @@ namespace Stocks.WPF.ViewModels
                 _stockViewModel.LoadStock();
             }
             return _stockViewModel;
-            //return new StockViewModel();
         }
 
         //загрузка данных

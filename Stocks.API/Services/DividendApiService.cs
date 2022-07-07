@@ -3,11 +3,11 @@ using Stocks.EntityFramework.Models;
 
 namespace Stocks.API.Services
 {
-    internal class DividendApiService : Base.ApiService<Dividend, Div>
+    public class DividendApiService : Base.ApiService<Dividend, Div>
     {
-        public DividendApiService()
+        public DividendApiService(string secId)
         {
-            _uri = @"https://iss.moex.com/iss/securities/:secid/dividends.json?iss.meta=off&iss.version=off&iss.json=extended";
+            _uri = @$"https://iss.moex.com/iss/securities/{secId}/dividends.json?iss.meta=off&iss.version=off&iss.json=extended";
             _blockName = "dividends";
         }
 
@@ -16,6 +16,7 @@ namespace Stocks.API.Services
             string[] date = apiModel.registryclosedate.Split('-'); //разбиение строки с датой на данные для типа данных дата
             _models.Add(new Dividend()
             {
+                Id = 0,
                 RegistryCloseDate = new DateTime(int.Parse(date[0]), int.Parse(date[1]), int.Parse(date[2])),
                 StockSecID = apiModel.secid,
                 Value = apiModel.value,

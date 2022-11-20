@@ -26,6 +26,8 @@
                                     MarkerType="Circle"/>
             
         </oxy:Plot>
-        <Button Grid.Row="1" Content="Back" Command="{Binding BackCommand}" CommandParameter="{x:Static enums:ViewType.Main}"/>
+        <Button Grid.Row="1" Content="Back" 
+                Command="{Binding BackCommand}" 
+                CommandParameter="{x:Static enums:ViewType.Main}"/>
     </Grid>
 </UserControl>

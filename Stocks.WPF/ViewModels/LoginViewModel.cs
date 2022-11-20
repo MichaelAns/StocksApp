@@ -66,7 +66,10 @@ namespace Stocks.WPF.ViewModels
 
         public LoginViewModel()
         {
-            OnLoginClick = new RelayCommand(LogInAsync, CanLogin);
+            OnLoginClick = new RelayCommand((obj) => {
+                Configuration.IsAdmin = true;
+                OpenViewModel.MainNavigator.CurrentViewModel = new MainViewModel();
+            }, CanLogin);
         }
 
     }

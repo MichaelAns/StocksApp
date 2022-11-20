@@ -21,23 +21,27 @@
             <DataTemplate DataType="{x:Type viewmodels:DividendViewModel}">
                 <views:DividendView/>
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:CostByDateViewModel}">
                 <views:CostByDateView/>
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:MarketViewModel}">
                 <views:MarketView/>
-            </DataTemplate>
-            
+            </DataTemplate>            
             
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <views:LogInView/>
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:MainViewModel}">
                 <views:MainView/>
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:RegistrationViewModel}">
                 <views:RegistrationView/>
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:PlotViewModel}">
                 <views:PlotView/>
             </DataTemplate>

@@ -28,7 +28,13 @@
                 <ColumnDefinition Width="600"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="providerDataGrid" IsReadOnly="True" Grid.Column="0" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid x:Name="providerDataGrid" IsReadOnly="True" 
+                      Grid.Column="0" 
+                      AutoGenerateColumns="False" 
+                      EnableRowVirtualization="True" 
+                      ItemsSource="{Binding Items}" 
+                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                      RowDetailsVisibilityMode="VisibleWhenSelected">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Id}" Header="Id"/>
                     <DataGridTextColumn Binding="{Binding SecID}" Header="SecId"/>

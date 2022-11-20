@@ -68,8 +68,7 @@ namespace Stocks.EntityFramework.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     TradeDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    LegalClosePrice = table.Column<double>(type: "double precision", nullable: true),
-                    Close = table.Column<double>(type: "double precision", nullable: true),
+                    Close = table.Column<double>(type: "double precision", nullable: false),
                     StockSecID = table.Column<string>(type: "text", nullable: false),
                     StockId = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -94,7 +93,8 @@ namespace Stocks.EntityFramework.Migrations
                     Value = table.Column<double>(type: "double precision", nullable: false),
                     CurrencyID = table.Column<string>(type: "text", nullable: false),
                     StockSecID = table.Column<string>(type: "text", nullable: false),
-                    StockId = table.Column<int>(type: "integer", nullable: false)
+                    StockId = table.Column<int>(type: "integer", nullable: false),
+                    Isin = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

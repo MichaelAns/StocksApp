@@ -12,7 +12,7 @@ using Stocks.EntityFramework.Date;
 namespace Stocks.EntityFramework.Migrations
 {
     [DbContext(typeof(StocksDbContext))]
-    [Migration("20220701151415_initial")]
+    [Migration("20220930162336_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,10 +32,7 @@ namespace Stocks.EntityFramework.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<double?>("Close")
-                        .HasColumnType("double precision");
-
-                    b.Property<double?>("LegalClosePrice")
+                    b.Property<double>("Close")
                         .HasColumnType("double precision");
 
                     b.Property<int>("StockId")
@@ -64,6 +61,10 @@ namespace Stocks.EntityFramework.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CurrencyID")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Isin")
                         .IsRequired()
                         .HasColumnType("text");
 

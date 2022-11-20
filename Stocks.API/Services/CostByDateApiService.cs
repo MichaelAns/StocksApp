@@ -10,7 +10,7 @@ namespace Stocks.API.Services
         public CostByDateApiService(string stockSecID)
         {
             _stockSecID = stockSecID;
-            _uri = @$"https://iss.moex.com/iss/history/engines/stock/markets/shares/sessions/total/securities/{stockSecID}.json?from=2022-03-01&till=2022-06-30&iss.meta=off&history.columns=TRADEDATE,LEGALCLOSEPRICE,CLOSE&iss.version=off&iss.json=extended";
+            _uri = @$"https://iss.moex.com/iss/history/engines/stock/markets/shares/sessions/total/securities/{stockSecID}.json?from=2022-05-01&till=2022-11-08&iss.meta=off&history.columns=TRADEDATE,LEGALCLOSEPRICE,CLOSE&iss.version=off&iss.json=extended";
             _blockName = "history";
         }
 

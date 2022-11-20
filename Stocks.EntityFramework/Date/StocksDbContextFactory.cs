@@ -8,7 +8,7 @@ namespace Stocks.EntityFramework.Date
         public StocksDbContext CreateDbContext(string[] args = null)
         {
             var options = new DbContextOptionsBuilder<StocksDbContext>();
-            options.UseNpgsql("Host=localhost;Port=5432;Database=StocksDbWithAPI;Username=postgres;Password=postgres");
+            options.UseNpgsql("Host=localhost;Port=5432;Database=StocksDbWithAPI;Username=postgres;Password=qwertyfsy");
             return new StocksDbContext(options.Options);
         }
     }

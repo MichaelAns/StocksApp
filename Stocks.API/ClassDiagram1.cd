@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Stocks.API.Models.CBD">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\CBD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stocks.API.Models.Div" Collapsed="true">
+    <Position X="14.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgIAAAAAABAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Div.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stocks.API.Models.Securitie">
+    <Position X="11" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAgAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Securitie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stocks.API.Services.Base.ApiService&lt;Model, ApiModel&gt;" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAKAAAAAAAAAAARAAAAAAAAAACAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Base\ApiService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.213" />
+  </Class>
+  <Class Name="Stocks.API.Services.CostByDateApiService">
+    <Position X="8.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Services\CostByDateApiService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stocks.API.Services.DividendApiService">
+    <Position X="4" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\DividendApiService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stocks.API.Services.StockApiService">
+    <Position X="6.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\StockApiService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Stocks.API.Services.Base.IApiService&lt;Model&gt;">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Base\IApiService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

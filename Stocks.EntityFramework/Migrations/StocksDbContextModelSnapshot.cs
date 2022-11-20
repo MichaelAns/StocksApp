@@ -30,10 +30,7 @@ namespace Stocks.EntityFramework.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<double?>("Close")
-                        .HasColumnType("double precision");
-
-                    b.Property<double?>("LegalClosePrice")
+                    b.Property<double>("Close")
                         .HasColumnType("double precision");
 
                     b.Property<int>("StockId")
@@ -62,6 +59,10 @@ namespace Stocks.EntityFramework.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CurrencyID")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Isin")
                         .IsRequired()
                         .HasColumnType("text");
 

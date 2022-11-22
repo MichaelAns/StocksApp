@@ -5,7 +5,10 @@ namespace Stocks.EntityFramework.Date
 {
     public class StocksDbContext : DbContext
     {
-        public StocksDbContext(DbContextOptions options) : base(options) { }
+        public StocksDbContext(DbContextOptions options) : base(options) 
+        {
+            
+        }
         public DbSet<User> User { get; set; }
         public DbSet<Stock> Stock { get; set; }
         public DbSet<Dividend> Dividend { get; set; }

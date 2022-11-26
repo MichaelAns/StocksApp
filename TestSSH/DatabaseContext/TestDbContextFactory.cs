@@ -8,7 +8,7 @@ namespace TestSSH.DatabaseContext
         public TestDbContext CreateDbContext(string[] args = null)
         {
             var options = new DbContextOptionsBuilder<TestDbContext>();
-            options.UseNpgsql("Host=localhost; Port=5432; Database=Test;Username=postgres;Password=postgres");
+            options.UseNpgsql("Host=localhost; Port=5432; Database=Test; Username=postgres;Password=postgres");
             return new TestDbContext(options.Options);
         }
     }

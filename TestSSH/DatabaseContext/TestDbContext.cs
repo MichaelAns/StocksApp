@@ -7,7 +7,6 @@ namespace TestSSH.DatabaseContext
     {
         public TestDbContext(DbContextOptions options) : base(options)
         {
-            //Database.EnsureCreated();
             Database.Migrate();
         }
         DbSet<TestModel> TestModel { get; set; }
